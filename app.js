@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('morgan');
@@ -25,7 +24,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 const indexRouter = require('./routes/index');
+const laboratoryRouter = require('./routes/laboratory');
+const examRouter = require('./routes/exam');
 
 app.use('/', indexRouter);
+app.use('/api', laboratoryRouter);
+app.use('/api', examRouter);
 
 module.exports = app;
