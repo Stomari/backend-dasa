@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/exam', (req, res) => {
   Exam.find({ status: 'ativo' })
     .then((exams) => res.json(exams))
-    .catch((err) => res.json(err));
+    .catch((error) => res.json(error));
 });
 
 /* POST create a new exam. */
