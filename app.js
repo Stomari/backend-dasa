@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('morgan');
-const path = require('path');
+const cors = require('cors');
 
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
@@ -20,7 +20,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 // Routes
 const indexRouter = require('./routes/index');
