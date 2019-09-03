@@ -93,8 +93,16 @@ router.put('/add/:examID/to-lab/:laboratoryID', (req, res) => {
     return;
   }
 
-  Laboratory.findByIdAndUpdate(laboratoryID, { $push: { activeExams: examID } })
-    .then(() => res.json({ message: 'Exam added successfully.' }))
+  Laboratory.findById(laboratoryID)
+    .then((lab) => {
+      if (!lab.activeExams.includes(examID)) {
+        Laboratory.findByIdAndUpdate(laboratoryID, { $push: { activeExams: examID } })
+          .then(() => res.json({ message: 'Exam added successfully.' }))
+          .catch((error) => res.json(error));
+      } else {
+        res.json({ message: 'Exam already added to this laboratory' });
+      }
+    })
     .catch((error) => res.json(error));
 });
 
