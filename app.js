@@ -22,12 +22,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+// Swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+const router = express.Router();
+
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api/v1', router);
+
+
 // Routes
-const indexRouter = require('./routes/index');
 const laboratoryRouter = require('./routes/laboratory');
 const examRouter = require('./routes/exam');
 
-app.use('/', indexRouter);
 app.use('/api', laboratoryRouter);
 app.use('/api', examRouter);
 
