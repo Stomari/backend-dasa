@@ -6,7 +6,7 @@ const laboratorySchema = new Schema({
   name: { type: String, required: true },
   address: { type: String, required: true },
   status: { type: String, required: true, enum: ['ativo', 'inativo'], default: 'ativo' },
-  activeExams: [{ type: Schema.Types.ObjectId, ref: 'Exams' }],
+  activeExams: [{ type: Schema.Types.ObjectId, ref: 'Exam' }],
 }, {
   timestamps: true,
 });
