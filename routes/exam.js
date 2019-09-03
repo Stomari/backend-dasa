@@ -13,7 +13,8 @@ router.get('/exam', (req, res) => {
 
 /* POST create a new exam. */
 router.post('/create/exam', (req, res) => {
-  const { name, type } = req.body;
+  let { name, type } = req.body;
+  name = name.toLowerCase();
 
   const newExam = new Exam({
     name,

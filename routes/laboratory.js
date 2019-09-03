@@ -15,7 +15,9 @@ router.get('/laboratory', (req, res) => {
 /* GET all laboratories associated with an exam. */
 router.get('/laboratory/:examName', (req, res) => {
   let { examName } = req.params;
-  examName = examName.split('-').join(' ');
+  if (examName.includes('-')) {
+    examName = examName.split('-').join(' ');
+  }
   Exam.findOne({ name: examName })
     .then((response) => {
       Laboratory.find({ activeExams: response.id })
