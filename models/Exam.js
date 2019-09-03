@@ -6,7 +6,6 @@ const examSchema = new Schema({
   name: { type: String, required: true, unique: true },
   type: { type: String, required: true, enum: ['analise clinica', 'imagem'] },
   status: { type: String, required: true, enum: ['ativo', 'inativo'], default: 'ativo' },
-  activeExams: [{ type: Schema.Types.ObjectId, ref: 'Exams' }],
 }, {
   timestamps: true,
 });
