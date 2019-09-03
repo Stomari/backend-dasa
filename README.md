@@ -1,6 +1,6 @@
 # Dasa Backend Challenge
 
-API link: https://dasa-backend.herokuapp.com
+API documentation link: https://dasa-backend.herokuapp.com/api-docs/
 
 ---
 
@@ -26,7 +26,7 @@ The objective of this API was to build a CRUD model for labs and exams, as well 
 ## Instructions for use
 
 ### Use the deployed link:
-- API link: https://dasa-backend.herokuapp.com
+- API documentation link: https://dasa-backend.herokuapp.com/api-docs/
 
 ### Local:
 - To use the container, in the terminal you build with <code class="blue">docker-compose build</code> and then run with <code class="blue">docker-compose up</code>. To stop the container use <code class="blue">docker-compose down</code>.
