@@ -35,7 +35,8 @@ router.put('/edit/exam/:examID', (req, res) => {
     return;
   }
 
-  const { name, type, status } = req.body;
+  let { name, type, status } = req.body;
+  name = name.toLowerCase();
 
   if (!name || !type || !status) {
     res.status(400).json({ message: 'Missing information, please verify if all fields were filled' });
