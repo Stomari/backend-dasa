@@ -8,6 +8,7 @@ const router = express.Router();
 /* GET all active laboratories. */
 router.get('/laboratory', (req, res) => {
   Laboratory.find({ status: 'ativo' })
+    .populate('activeExams')
     .then((labs) => res.json(labs))
     .catch((error) => res.json(error));
 });
