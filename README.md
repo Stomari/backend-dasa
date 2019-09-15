@@ -1,4 +1,4 @@
-# Dasa Backend Challenge
+# DASA Backend Challenge
 
 API documentation link: https://dasa-backend.herokuapp.com/api-docs/
 
